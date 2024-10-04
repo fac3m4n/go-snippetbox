@@ -32,8 +32,8 @@ func main() {
 	mux.HandleFunc("POST /snippet/create", app.snippetCreatePost)
 
 	logger.Info("starting server", "addr", *addr)
-	err := http.ListenAndServe(*addr, mux)
 
+	err := http.ListenAndServe(*addr, mux)
 	logger.Error(err.Error())
 	os.Exit(1)
 
