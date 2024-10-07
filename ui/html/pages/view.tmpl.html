@@ -1,4 +1,5 @@
-{{define "title"}}Snippet #{{.ID}}{{end}} {{define "main"}}
+{{define "title"}}Snippet #{{.Snippet.ID}}{{end}} {{define "main"}} {{with
+.Snippet}}
 <div class="snippet">
   <div class="metadata">
     <strong>{{.Title}}</strong>
@@ -6,8 +7,8 @@
   </div>
   <pre><code>{{.Content}}</code></pre>
   <div class="metadata">
-    <time datetime="">Created: {{.Created}}</time>
-    <time datetime="">Expires: {{.Expires}}</time>
+    <time datetime="">Created: {{.Created.Weekday}}</time>
+    <time datetime="">Expires: {{.Expires.Weekday}}</time>
   </div>
 </div>
-{{end}}
+{{end}} {{end}}
