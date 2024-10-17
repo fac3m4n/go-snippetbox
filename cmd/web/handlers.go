@@ -10,7 +10,6 @@ import (
 )
 
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Server", "Go")
 
 	snippets, err := app.snippets.Latest()
 	if err != nil {
@@ -23,6 +22,7 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	app.render(w, r, http.StatusOK, "home.tmpl.html", data)
 }
+
 func (app *application) snippetView(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.PathValue("id"))
 	if err != nil || id < 1 {
